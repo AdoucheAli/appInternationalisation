@@ -1,0 +1,64 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h = "http://java.sun.com/jsf/html"
+      xmlns:f = "http://java.sun.com/jsf/core">
+    <h:head>
+        <title>Internationalisation</title>
+        <link href="css/bootstrap.min.css" rel="stylesheet"/>
+    </h:head>
+    <h:body>
+        <f:view locale="#{localeManagedBean.locale}"/>
+        <div class="row-fluid">
+            <div class="span10 offset1">
+                <div class="navbar">
+                    <div class="navbar-inner">
+                        <a class="brand" href="#">i18n</a>
+                        <ul class="nav">
+                            <li class ="active"><a href="#">#{msg['navbar.accueil']}</a></li>
+                            <li><a href="#">#{msg['navbar.contact']}</a></li>
+                            <li><a href="#">#{msg['navbar.apropos']}</a></li>
+                        </ul>
+                        <h:form class="navbar-form pull-right">
+                            <h:selectOneMenu value="#{localeManagedBean.language}">
+                                <f:selectItems value="#{localeManagedBean.locales}" />
+                                <f:ajax render="@all" />
+                            </h:selectOneMenu>
+                            <p class="navbar-text pull-right">#{index.date}</p>
+                        </h:form>
+                    </div>
+                </div>
+            </div>
+            <div class="row-fluid">
+                <div class="span10 offset1">
+                    <div class="hero-unit">
+                        <h1>
+                            #{msg['header.bienvenue']}
+                        </h1>
+                    </div>
+                </div>
+                <div class="row-fluid">
+                    <div class="span5 offset1">
+                        <div class="hero-unit">
+                            <h2>
+                                #{msg['content1.titre']}
+                            </h2>
+                            #{msg['content1.corps']}
+                            <p><a class="btn" href="http://dev.david.pilato.fr/"> #{msg['contents.detail']}</a></p>
+                        </div>
+                    </div>
+                    <div class="span5">
+                        <div class="hero-unit">
+                             <h2>
+                                #{msg['content2.titre']}
+                            </h2>
+                            #{msg['content2.corps']}
+                            <p><a class="btn" href="#{msg['content2.lien']}"> #{msg['contents.detail']}</a></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </h:body>
+</html>
+
